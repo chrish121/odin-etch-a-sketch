@@ -1,3 +1,13 @@
+const gridButton = document.createElement("button");
+gridButton.classList.add("gridButton");
+document.body.appendChild(gridButton);
+gridButton.textContent = "Edit Grid";
+gridButton.setAttribute("style", "font-size: 24px; margin: 10px")
+
+gridButton.addEventListener("click", () => {
+    prompt("How many squares per side should the new grid have?");
+})
+
 function getRandom(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -30,8 +40,10 @@ const gridSquare = document.querySelectorAll(".gridSquares");
 gridSquare.forEach((gridSquare) => {
     gridSquare.addEventListener("mouseover", (event) => {
         event.target.style.backgroundColor = "rgb" + `(${(getRandom(0, 255))}, ${(getRandom(0, 255))}, ${(getRandom(0, 255))})`;
+        event.target.style.opacity += "1";
         setTimeout (() => {
             event.target.style.backgroundColor = "";
+            event.target.style.opacity = "";
         }, 500);
     }, false);
 });
