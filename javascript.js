@@ -5,7 +5,12 @@ gridButton.textContent = "Edit Grid";
 gridButton.setAttribute("style", "font-size: 24px; margin: 10px")
 
 gridButton.addEventListener("click", () => {
-    prompt("How many squares per side should the new grid have?");
+    var userGrid = prompt("How many squares per side should the new grid have?");
+    if (userGrid <= 100) {
+        var gridNumber = userGrid;
+    } else {
+        alert("The maximum number is 100.");
+    }
 })
 
 function getRandom(min, max) {
@@ -16,24 +21,27 @@ function getRandom(min, max) {
 
 console.log(`(${(getRandom(0, 255))}, ${(getRandom(0, 255))}, ${(getRandom(0, 255))})`);
 
+var gridNumber = 16;
+a = 10;
+
 const mainContainer = document.createElement("div");
 mainContainer.classList.add("mainContainer");
 document.body.appendChild(mainContainer);
-mainContainer.setAttribute("style", "border: 1px solid black; height: 194px; width: 224px; display: flex; flex-direction: row");
+mainContainer.setAttribute("style", "border: 1px solid black; width: min-content; display: flex; flex-direction: row");
 
-for (let i = 0; i < 16; i++) {
+
+for (let i = 0; i < gridNumber; i++) {
     const container = document.createElement("div");
     container.classList.add("container");
     mainContainer.appendChild(container);
-    container.setAttribute("style", "border: 1px solid black; height: 192px; width: 12px");
 
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < gridNumber; i++) {
         var gridSquares = document.createElement("div");
         gridSquares.classList.add("gridSquares");
         container.appendChild(gridSquares);
         gridSquares.setAttribute("style", "border: 1px solid black; height: 10px; width: 10px");
     }
-}
+}console.log((`${gridNumber}`*100) + `px`)
 
 const gridSquare = document.querySelectorAll(".gridSquares");
 
