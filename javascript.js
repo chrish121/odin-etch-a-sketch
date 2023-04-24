@@ -2,7 +2,7 @@ const gridButton = document.createElement("button");
 gridButton.classList.add("gridButton");
 document.body.appendChild(gridButton);
 gridButton.textContent = "Edit Grid";
-gridButton.setAttribute("style", "font-size: 24px; margin: 10px")
+gridButton.setAttribute("style", "font-size: 30px; margin: 10px; border-radius: 8px; border: 2px solid rgb(10, 184, 234); background-color: rgb(10, 184, 234); color: rgb(10, 0, 143)")
 
 gridButton.addEventListener("click", gridPrompt);
 gridButton.addEventListener("click", () => {
@@ -16,7 +16,7 @@ gridButton.addEventListener("click", () => {
 var gridNumber = 16;
 
 function changeGridSize() {
-    let gridSize = (500 / gridNumber) - 1.5;
+    let gridSize = (700 / gridNumber) - 1.5;
     return(gridSize);
 }
 
@@ -47,7 +47,8 @@ function createGrid() {
     const mainContainer = document.createElement("div");
     mainContainer.classList.add("mainContainer");
     document.body.appendChild(mainContainer);
-    mainContainer.setAttribute("style", "border: 1px solid black; width: min-content; display: flex; flex-direction: row");
+    document.body.setAttribute("style", "background-color: rgb(10, 0, 143); display: flex; flex-direction: column; align-items: center");
+    mainContainer.setAttribute("style", "border: 1px solid rgb(10, 184, 234); width: min-content; display: flex; flex-direction: row");
 
 
     for (let i = 0; i < num; i++) {
@@ -59,7 +60,7 @@ function createGrid() {
             var gridSquare = document.createElement("div");
             gridSquare.classList.add("gridSquare");
             container.appendChild(gridSquare);
-            gridSquare.setAttribute("style", `border: 1px solid black; height: ${changeGridSize()}px; width: ${changeGridSize()}px`);
+            gridSquare.setAttribute("style", `border: 1px solid rgb(10, 184, 234); height: ${changeGridSize()}px; width: ${changeGridSize()}px`);
         }
     }
 
