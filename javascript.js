@@ -16,7 +16,7 @@ gridButton.addEventListener("click", () => {
 var gridNumber = 16;
 
 function changeGridSize() {
-    let gridSize = (700 / gridNumber) - 1.5;
+    let gridSize = (500 / gridNumber);
     return(gridSize);
 }
 
@@ -48,7 +48,7 @@ function createGrid() {
     mainContainer.classList.add("mainContainer");
     document.body.appendChild(mainContainer);
     document.body.setAttribute("style", "background-color: rgb(10, 0, 143); display: flex; flex-direction: column; align-items: center");
-    mainContainer.setAttribute("style", "border: 1px solid rgb(10, 184, 234); width: min-content; display: flex; flex-direction: row");
+    mainContainer.setAttribute("style", "border: 1px solid rgb(10, 184, 234); width: min-content; display: flex; flex-direction: row; box-sizing: border-box");
 
 
     for (let i = 0; i < num; i++) {
@@ -60,7 +60,7 @@ function createGrid() {
             var gridSquare = document.createElement("div");
             gridSquare.classList.add("gridSquare");
             container.appendChild(gridSquare);
-            gridSquare.setAttribute("style", `border: 1px solid rgb(10, 184, 234); height: ${changeGridSize()}px; width: ${changeGridSize()}px`);
+            gridSquare.setAttribute("style", `border: 1px solid rgb(10, 184, 234); height: ${changeGridSize()}px; width: ${changeGridSize()}px; box-sizing: border-box`);
         }
     }
 
@@ -69,10 +69,8 @@ function createGrid() {
     gridSquares.forEach((gridSquare) => {
         gridSquare.addEventListener("mouseover", (event) => {
             event.target.style.backgroundColor = "rgb" + `(${(getRandom(0, 255))}, ${(getRandom(0, 255))}, ${(getRandom(0, 255))})`;
-            event.target.style.opacity += "1";
             setTimeout (() => {
                 event.target.style.backgroundColor = "";
-                event.target.style.opacity = "";
             }, 500);
         }, false);
     });
