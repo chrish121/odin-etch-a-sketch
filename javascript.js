@@ -69,11 +69,8 @@ function createGrid() {
     gridSquares.forEach((gridSquare) => {
         gridSquare.addEventListener("mouseover", (event) => {
             event.target.style.backgroundColor = "rgb" + `(${(getRandom(0, 255))}, ${(getRandom(0, 255))}, ${(getRandom(0, 255))})`;
-            setTimeout (() => {
-                event.target.style.backgroundColor = "";
-            }, 500);
-        }, false);
     });
-}
+});
+};
 
 createGrid();
